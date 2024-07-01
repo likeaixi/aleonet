@@ -6,3 +6,5 @@ cd snarkOS
 git checkout tags/testnet-beta
 
 ./build_ubuntu.sh
+
+source ~/.cargo/env
