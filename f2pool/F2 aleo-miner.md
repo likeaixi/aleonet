@@ -2,13 +2,13 @@
 
 ### 版本号
 
-2.0.0
+2.4.6
 
 ### start
 
 ```
-- chmod +x aleo.sh && chmod +x aleo-miner
-- ./aleo.sh stratum+tcp://aleo-asia.f2pool.com:4400 accountname.workername
+chmod +x aleo.sh && chmod +x aleo-miner
+./aleo.sh stratum+tcp://aleo-asia.f2pool.com:4400 accountname.workername
 ```
 
 If the GPU cannot be started successfully, use the following command
