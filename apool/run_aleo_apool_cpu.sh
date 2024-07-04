@@ -8,7 +8,7 @@ function ceil(){
 
 max_cpu_processor="cat /proc/cpuinfo| grep "processor"| wc -l"
 
-cpu_processor=`ceil "$max_cpu_processor" \* 80 / 100`
+cpu_processor=`ceil $($max_cpu_processor \* 80 / 100)`
 
 echo "$cpu_processor"
 if ps aux | grep 'apoolminer' | grep -q 'apool.io'; then
