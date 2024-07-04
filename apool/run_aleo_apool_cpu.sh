@@ -6,7 +6,7 @@ function ceil(){
   echo `expr $floor  + $add`
 }
 
-max_cpu_processor="cat /proc/cpuinfo| grep "processor"| wc -l"
+max_cpu_processor=`cat /proc/cpuinfo| grep "processor"| wc -l`
 
 cpu_processor=`ceil $($max_cpu_processor \* 80 / 100)`
 
