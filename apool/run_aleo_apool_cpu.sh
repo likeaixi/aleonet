@@ -1,19 +1,20 @@
 #!/bin/bash
 
-function ceil(){
-  floor=`echo "scale=0;$1/1"|bc -l ` # 向下取整
-  add=`awk -v num1=$floor -v num2=$1 'BEGIN{print(num1<num2)?"1":"0"}'`
-  echo `expr $floor  + $add`
-}
+# 获取 CPU 核心总数
+cpu_cores=$(grep -c ^processor /proc/cpuinfo)
 
-max_cpu_processor=`cat /proc/cpuinfo| grep "processor"| wc -l`
+# 计算 80% 的核心数
+cpu_cores_80=$(echo "$cpu_cores * 0.8" | bc)
 
-cpu_processor=`ceil $($max_cpu_processor \* 80 / 100)`
+# 取整，舍弃小数部分
+cpu_cores_80=$(printf "%.0f" $cpu_cores_80)
 
-echo "$cpu_processor"
+echo "CPU 核心总数: $cpu_cores"
+echo "80% 的 CPU 核心数: $cpu_cores_80"
+
 if ps aux | grep 'apoolminer' | grep -q 'apool.io'; then
     echo "ApoolMiner already running."
     exit 1
 else
-    nohup  ./apoolminer --pool aleo1.hk.apool.io:9090 --gpu-off --account CP_asmku88wik -A aleo -t "$cpu_processor" >> aleo.log 2>&1 &
+    nohup  ./apoolminer --pool aleo1.hk.apool.io:9090 --gpu-off --account CP_asmku88wik -A aleo -t "$cpu_cores_80" >> aleo.log 2>&1 &
 fi
