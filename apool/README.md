@@ -192,3 +192,15 @@ GPU performance optimization.
 ### 1.6.3
 CPU mining with aleo support.
 
+### 1.6.4
+CPU performance optimization for aleo.
+
+### 1.6.5
+GPU mining with aleo support.
+
+### 1.6.6
+performance optimization for aleo.
+
+### 1.6.7
+CPU performance optimization for aleo.
+
