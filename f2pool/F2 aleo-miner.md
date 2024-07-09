@@ -2,9 +2,8 @@
 
 ### 版本号
 
-2.8.4
-- Optimized the performance on GPU, improving it by 10%~20%
-- Solved the problem of device offline when the puzzle difficulty increase
+2.8.8
+- Solved the problem of abnormal exit of mining process under high difficulty.
 
 ### start
 
@@ -26,6 +25,7 @@ export NONCE_TIMES=16 && nohup ./aleo-miner -u "stratum+tcp://aleo-asia.f2pool.c
  -u, --url <URL>              Set the pool URL Format: <Working protocol>+<Wransport protocol>://<pool>:<port> Working protocol: stratum Transport protocols: tcp, ssl
  -w, --worker <WORKER>        Set the account && worker name [default: accountname.workername]
  -d, --devices <DEVICES>      -d 0 
+ -g,                          -g 0
 ```
 
 ```
@@ -33,5 +33,4 @@ tail -f aleo-miner.log         print log
 #显示log
 pkill -9 aleo-miner            Kill mining progress
 #结束挖矿进程
-
 ```
