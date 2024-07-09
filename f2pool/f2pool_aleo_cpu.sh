@@ -9,5 +9,5 @@ ip_address_no_dots=$(echo $ip_address | tr -d '.')
 # 打印处理后的 IP 地址
 echo "IP 地址: $ip_address_no_dots"
 
-export NONCE_TIMES=16 && nohup ./aleo-miner -u stratum+tcp://aleo-asia.f2pool.com:4400 -w hty2021.$ip_address_no_dots >> ./aleo-miner.log 2>&1 &
+nohup ./aleo-miner -u stratum+tcp://aleo-asia.f2pool.com:4400 -w hty2021.$ip_address_no_dots >> ./aleo-miner.log 2>&1 &
 
