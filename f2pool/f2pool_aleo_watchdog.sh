@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 被守护进程的启动命令
-COMMAND="./aleo-miner"
+COMMAND="/root/aleo/f2pool/aleo-miner"
 
 # 守护进程的日志文件
 LOGFILE="/root/aleo/f2pool/daemon_watchdog.log"
@@ -22,7 +22,7 @@ watchdog() {
         if [ $? -ne 0 ]; then
             # 进程未运行，重启进程
             log "Process not running. Restarting $COMMAND"
-            cd /root/aleo/f2pool/ && ./f2pool_aleo_gpu.sh
+            /root/aleo/f2pool/f2pool_aleo_gpu.sh
             log "Process restarted"
         fi
         sleep "$INTERVAL"
